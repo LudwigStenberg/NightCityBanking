@@ -10,6 +10,11 @@ end)
 
 -- Create a simple UI window - this will display in the game
 registerForEvent("onDraw", function()
+    -- Check if the CET overlay is visible 
+    if not Game.GetSystemRequestHandler():GetIsUIEnabled() then
+        return
+    end
+    
     -- Only show the UI if the CET overlay is visible
     if not ImGui.Begin("Night City Banking Test") then
         ImGui.End()
